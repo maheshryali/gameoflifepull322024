@@ -1,6 +1,6 @@
-pipeline{
+pipeline {
     agent any
-    stages{
+    stages {
         stage{
             git branch: 'master'
             url: 'https://github.com/maheshryali/game-of-life.git'
