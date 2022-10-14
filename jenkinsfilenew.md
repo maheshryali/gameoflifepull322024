@@ -5,19 +5,19 @@ pipeline{
         string(name: 'MAVEN', defaultValue: 'mvn package', description: 'this is for maven build')
     }
     stages{
-        stage('vcs'){
+        stage('vcs') {
             steps{
             git branch : "${params.branch_1}",
                    url : 'https://github.com/maheshryali/game-of-life.git' 
                    }
         }
-        stage('mavenbuild'){
+        stage('mavenbuild') {
             steps{
             sh "${params.MAVEN}"
             }
         }
         
-        stage('testreportxmls'){
+        stage('testreportxmls') {
             steps{
             junit '**/surefire-reports/*.xml'
             }
