@@ -13,10 +13,10 @@ pipeline{
             sh "${params.MAVEN}"
         }
         stage('archiveartifactory'){
-            sh ('gameoflife-web/target/*.war')
+            sh 'gameoflife-web/target/*.war'
         }
         stage('testreportxmls'){
-            sh ('**/surefire-reports/*.xml)
+            sh '**/surefire-reports/*.xml'
         }
     }
 }
