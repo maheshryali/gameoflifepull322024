@@ -6,7 +6,7 @@ pipeline{
     }
     stages{
         stage('vcs'){
-            git branch : "${params.branch_1},
+            git branch : "${params.branch_1}",
                    url : 'https://github.com/maheshryali/game-of-life.git' 
         }
         stage('mavenbuild'){
