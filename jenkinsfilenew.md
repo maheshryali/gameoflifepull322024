@@ -16,11 +16,5 @@ pipeline {
             sh "${params.MAVEN}"
             }
         }
-        
-        stage('testreportxmls') {
-            steps {
-            junit '**/surefire-reports/*.xml'
-            }
-        }
     }
 }
