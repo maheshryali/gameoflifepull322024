@@ -1,10 +1,10 @@
-pipeline{
+pipeline {
     agent {label 'GAMEOFLIFE'}
     parameters {
         choice(name: 'branch_1', choices: ['master', 'branch1'], description: 'this isfor barnchselection')
         string(name: 'MAVEN', defaultValue: 'mvn package', description: 'this is for maven build')
     }
-    stages{
+    stages {
         stage('vcs') {
             steps{
             git branch : "${params.branch_1}",
@@ -18,7 +18,7 @@ pipeline{
         }
         
         stage('testreportxmls') {
-            steps{
+            steps {
             junit '**/surefire-reports/*.xml'
             }
         }
