@@ -5,14 +5,14 @@ pipeline {
         string(name: 'MAVEN', defaultValue: 'package', description: 'forselectingmaven')
     }
     stages {
-        stage('vcs'){
+        stage ('vcs') {
             git branch: '${params.branchname}'
                    url: 'https://github.com/maheshryali/game-of-life.git'
         }
-        stage('mavenbuild'){
+        stage ('mavenbuild') {
             sh '${params.MAVEN}'
         }
-        stage('archieve'){
+        stage ('archieve') {
             sh 'gameoflife-web/target/*.war'
         }
     }
