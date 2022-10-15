@@ -6,6 +6,9 @@ pipeline {
         choice(name:'MAVEN', choices: ['clean', 'package','clean install','clean package','test'], description: 'forbranchselection')
         //string(name: 'MAVEN1', defaultValue: 'package', description: 'forselectingmaven')
     }
+    triggers {
+        cron('43 10 * * *')
+    }
     stages {
         stage('vcs') {
             steps {
