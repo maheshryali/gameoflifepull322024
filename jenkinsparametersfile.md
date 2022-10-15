@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('vcs') {
             steps {
-            git branch: '${params.branchname}'
+            git branch: "${params.branchname}"
                    url: 'https://github.com/maheshryali/game-of-life.git'
                    }
         }
