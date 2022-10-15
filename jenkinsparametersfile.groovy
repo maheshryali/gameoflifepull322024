@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'GAMEOFLIFE' }
     parameters {
-        choice(name:'Java_version', choices: ['8', '11'], description: 'forbranchselection')
+        choice(name:'Java_version', choices: ['8'], description: 'forbranchselection')
         choice(name:'branchname', choices: ['master', 'branch1'], description: 'forbranchselection')
         choice(name:'MAVEN', choices: ['clean', 'package','clean install','clean package','test'], description: 'forbranchselection')
         //string(name: 'MAVEN1', defaultValue: 'package', description: 'forselectingmaven')
