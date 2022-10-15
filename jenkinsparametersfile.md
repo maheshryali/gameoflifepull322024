@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('vcs') {
             steps {
-            git branch: "${params.branchname}"
+            git branch: "${params.branchname}",
                    url: 'https://github.com/maheshryali/game-of-life.git'
                    }
         }
@@ -18,7 +18,7 @@ pipeline {
         }
         stage('archieve') {
             steps{
-            sh 'gameoflife-web/target/*.war'
+            junit '**/surefire-reports/*.xml'
             }
         }
     }
