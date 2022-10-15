@@ -15,8 +15,11 @@ pipeline {
         }
         stage('mavenbuild') {
             steps {
+                sh """
                 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
-                sh " mvn ${params.MAVEN}"
+                echo $JAVA_HOME
+                mvn ${params.MAVEN}
+                """
                 /*
                 script{
                     if (${params.Java_version} == '8'){
