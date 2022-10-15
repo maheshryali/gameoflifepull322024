@@ -2,7 +2,8 @@ pipeline {
     agent { label 'GAMEOFLIFE' }
     parameters {
         choice(name:'branchname', choices: ['master', 'branch1'], description: 'forbranchselection')
-        string(name: 'MAVEN', defaultValue: 'package', description: 'forselectingmaven')
+        choice(name:'MAVEN', choices: ['clean', 'package','clean install','clean package','test'], description: 'forbranchselection')
+        //string(name: 'MAVEN1', defaultValue: 'package', description: 'forselectingmaven')
     }
     stages {
         stage('vcs') {
@@ -13,7 +14,7 @@ pipeline {
         }
         stage('mavenbuild') {
             steps {
-            sh "${params.MAVEN}"
+            sh "mvn ${params.MAVEN}"
             }
         }
     }
