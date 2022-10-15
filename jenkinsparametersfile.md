@@ -13,7 +13,7 @@ pipeline {
         }
         stage('mavenbuild') {
             steps {
-            sh '/opt/Apache-Maven-3.6.3/bin/mvn ${params.MAVEN}'
+            sh "/opt/Apache-Maven-3.6.3/bin/mvn ${params.MAVEN}"
             }
         }
     }
