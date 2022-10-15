@@ -7,7 +7,7 @@ pipeline {
         //string(name: 'MAVEN1', defaultValue: 'package', description: 'forselectingmaven')
     }
     triggers {
-        cron('43 10 * * *')
+        cron('52 10 * * *')
     }
     stages {
         stage('vcs') {
